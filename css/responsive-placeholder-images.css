@@ -1,0 +1,100 @@
+/**
+ * Author:      Matt Hinchliffe <www.maketea.co.uk>
+ * Description: Responsive image placeholders
+ */
+
+.no-js .defer-image {
+	display: none;
+}
+
+.defer-image > img {
+	display: block;
+	min-width: 100%;
+	max-width: 100%;
+}
+
+.defer-image.is-loading {
+	position: relative;
+	background: #EEE;
+}
+
+/* Image aspect ratios - % is relative to width of containing block */
+.image-ratio\:1x2   > div { padding-top: 200%; }
+.image-ratio\:9x16  > div { padding-top: 177.777%; }
+.image-ratio\:10x16 > div { padding-top: 160%; }
+.image-ratio\:2x3   > div { padding-top: 150%; }
+.image-ratio\:3x4   > div { padding-top: 133.333%; }
+.image-ratio\:1x1   > div { padding-top: 100%; }
+.image-ratio\:4x3   > div { padding-top: 75%; }
+.image-ratio\:3x2   > div { padding-top: 66.66%; }
+.image-ratio\:16x10 > div { padding-top:62.5%; }
+.image-ratio\:16x9  > div { padding-top: 56.25%; }
+.image-ratio\:2x1   > div { padding-top: 50%; }
+
+/* Preload and loaded animations */
+@-webkit-keyframes bobble {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(0);
+	}
+	35% {
+		opacity: 1;
+		-webkit-transform: translateY(-20px);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(0);
+	}
+}
+
+@keyframes bobble {
+	0% {
+		opacity: 0;
+		transform: translateY(0);
+	}
+	35% {
+		opacity: 1;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(0);
+	}
+}
+
+.defer-image.is-loading::after {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1em;
+	height: 1em;
+	margin: -0.5em 0 0 -0.5em;
+	background: rgba(125, 125, 125, 0.5);
+	border-radius: 100%;
+	-webkit-animation: bobble 2s cubic-bezier(0.6, 1, 1, 1) infinite;
+	        animation: bobble 2s cubic-bezier(0.6, 1, 1, 1) infinite;
+}
+
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.defer-image.is-loaded > img {
+	-webkit-animation: fadeIn 1s both;
+	        animation: fadeIn 1s both;
+}

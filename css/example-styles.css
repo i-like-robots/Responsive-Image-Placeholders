@@ -1,0 +1,87 @@
+/**
+ * Author:      Matt Hinchliffe <www.maketea.co.uk>
+ * Description: Example styles
+ */
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+	body {
+		line-height: 1.5;
+		font-family: Arial, sans-serif;
+		color: #111;
+		background: #eee;
+	}
+
+h1, h2, h3 {
+	color: #555;
+}
+	h1 {
+		margin: 0 0 .2em;
+		font-size: 2.5em;
+		letter-spacing: -.075em;
+	}
+	h2 {
+		margin: 0 0 .5em;
+		font-weight: normal;
+		font-size: 1.5em;
+	}
+	h3 {
+		margin: 0 0 .5em;
+		font-size: 1em;
+	}
+
+p {
+	margin: 0 0 1em;
+}
+
+.container {
+	min-width: 24em;
+	max-width: 48em;
+	margin: 0 auto;
+	padding: 1em 1em 2em;
+	background: #fff;
+	box-shadow: 0 0 5em rgba(0, 0, 0, 0.1);
+}
+
+.notice {
+	padding: .5em;
+	border: 1px solid #fcfc9c;
+	font-style: italic;
+	text-align: center;
+	background: #fefece;
+}
+
+.image-fill {
+	margin: 0 0 1em;
+}
+
+.image-left {
+	float: left;
+	width: 40%;
+	margin: 0 1em 1em 0;
+}
+
+.image-right {
+	float: right;
+	width: 40%;
+	margin: 0 0 1em 1em;
+}
+
+@media screen and (max-width:32em) {
+
+	.container {
+		box-shadow: none;
+	}
+
+	.image-left,
+	.image-right {
+		float: none;
+		width: 100%;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+}
