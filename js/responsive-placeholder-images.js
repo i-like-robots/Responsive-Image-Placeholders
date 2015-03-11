@@ -20,8 +20,6 @@
         for (i = 0, len = placehold.attributes.length; i < len; i++) {
             attr = placehold.attributes[i];
 
-            console.log(attr.name);
-
             if (attr.name.match(/^data-/)) {
                 img.setAttribute(attr.name.replace('data-', ''), attr.value);
             }
